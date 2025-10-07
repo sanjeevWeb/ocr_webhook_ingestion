@@ -1,0 +1,47 @@
+{
+  // Visit https://aka.ms/tsconfig to read more about this file
+  "compilerOptions": {
+    /* ===== File Layout ===== */
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    /* ===== Module & Target ===== */
+    "module": "NodeNext",             // ESM mode for Node 18+
+    "target": "ES2021",
+    "moduleResolution": "nodenext",   // required for nodenext to work properly
+    "resolveJsonModule": true,
+    "allowJs": true,
+
+    /* ===== Type Declarations ===== */
+    "types": ["node", "jest"],        //  include Node + Jest globals
+
+    /* ===== Outputs ===== */
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    /* ===== Type Safety ===== */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+
+    /* ===== Interop ===== */
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* ===== Module Syntax ===== */
+    "verbatimModuleSyntax": true,     //  keep this ON for modern type-only imports
+    "moduleDetection": "force",
+    "typeRoots": ["./node_modules/@types", "./src/types"]
+
+    /* ===== JSX (optional for React) ===== */
+    // You can safely remove this if you're not using React
+    // "jsx": "react-jsx"
+  },
+
+  /* ===== Include / Exclude ===== */
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist", "jest.config.ts"]
+}

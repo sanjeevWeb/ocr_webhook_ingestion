@@ -1,0 +1,53 @@
+{
+  "name": "webhook_ingestion3oct25",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "test": "jest",
+    "start": "node dist/index.js",
+    "build": "tsx",
+    "dev": "tsx src/index.ts",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "seed": "tsx src/seedUsers.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/jsonwebtoken": "^9.0.10",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "fs-extra": "^11.3.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.20.0",
+    "mongoose": "^8.19.0",
+    "multer": "^2.0.2"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.37.0",
+    "@types/express": "^5.0.3",
+    "@types/fs-extra": "^11.0.4",
+    "@types/jest": "^30.0.0",
+    "@types/mongoose": "^5.11.96",
+    "@types/multer": "^2.0.0",
+    "@types/node": "^24.6.2",
+    "@types/supertest": "^6.0.3",
+    "@typescript-eslint/eslint-plugin": "^8.45.0",
+    "@typescript-eslint/parser": "^8.45.0",
+    "eslint": "^9.37.0",
+    "eslint-config-prettier": "^10.1.8",
+    "jest": "^30.2.0",
+    "nodemon": "^3.1.10",
+    "prettier": "^3.6.2",
+    "supertest": "^7.1.4",
+    "ts-jest": "^29.4.4",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}
