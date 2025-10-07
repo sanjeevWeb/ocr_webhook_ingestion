@@ -1,0 +1,155 @@
+ques) can you please add tooling like eslint, prettier and jest for this project
+ans: To add ESLint, Prettier, and Jest to your TypeScript Express MongoDB project, you will install and configure additional packages that automate code linting, formatting, and testing. 
+Step 1: Install development dependencies
+Add ESLint, Prettier, and Jest along with their TypeScript integrations. You will also install supertest for testing your Express API endpoints
+
+npm install --save-dev eslint prettier @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-config-prettier jest ts-jest @types/jest supertest @types/supertest
+
+Package breakdown:
+eslint and @typescript-eslint/*: The core ESLint libraries and TypeScript-specific rules and parser.
+prettier and eslint-config-prettier: Prettier for code formatting, with a special configuration to disable any ESLint rules that conflict with Prettier.
+jest and ts-jest: The Jest testing framework and a preprocessor to handle TypeScript files.
+supertest and @types/supertest: A library for testing HTTP servers like Express and its corresponding type definitions. 
+Step 2: Configure ESLint
+Create a configuration file named .eslintrc.json in the root of your project. This file tells ESLint how to analyze your code.
+
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "env": {
+    "node": true,
+    "es6": true,
+    "jest": true
+  },
+  "rules": {
+    // Add your own custom rules or override recommended rules here
+  }
+}
+
+Step 3: Configure Prettier
+Create a .prettierrc.json file to define your code formatting rules. For best results, use this file along with the ESLint extension to automatically format your code on save. 
+.prettierrc.json
+
+{
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "printWidth": 100
+}
+You can also create a .prettierignore file to prevent Prettier from formatting specific files or directories, such as the dist folder. 
+.prettierignore
+dist/
+node_modules/
+
+Step 4: Configure Jest
+Create a jest.config.js file to tell Jest how to run your tests, specifically by using ts-jest to handle TypeScript files.
+module.exports = {
+  preset: 'ts-jest',
+  testEnvironment: 'node',
+  moduleFileExtensions: ['ts', 'js'],
+  testMatch: ['<rootDir>/src/**/*.test.ts'],
+};
+
+preset: 'ts-jest' enables Jest to understand and compile TypeScript.
+testEnvironment: 'node' specifies the environment where your tests will run.
+testMatch tells Jest to look for test files with the .test.ts suffix inside your src directory. 
+Step 5: Update package.json scripts
+Add new scripts to your package.json for running your new tools. 
+package.json
+
+"scripts": {
+  "build": "npx tsc",
+  "start": "node dist/index.js",
+  "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+  "lint": "eslint src --ext .ts",
+  "lint:fix": "eslint src --ext .ts --fix",
+  "format": "prettier --write \"src/**/*.ts\"",
+  "test": "jest"
+},
+
+Now you can use these commands to automate your development workflow:
+npm run lint to check for linting errors.
+npm run lint:fix to automatically fix any autofixable issues.
+npm run format to format your code based on your Prettier settings.
+npm run test to run your test suite with Jest. 
+Step 6: Write a test for your API
+To test your Express API, you'll need to refactor your server setup slightly so that your test runner can import your Express app instance without starting the server.
+Create a new src/app.ts file with the following content. This will contain your Express app instance, which can now be imported for testing.src/app.ts
+
+import express from 'express';
+import userRoutes from './routes/user.routes';
+
+const app = express();
+
+// Middleware
+app.use(express.json());
+
+// Routes
+app.use('/users', userRoutes);
+
+export default app;
+
+Update src/index.ts to import and listen on the app instance.src/index.ts
+
+import dotenv from 'dotenv';
+import { connectDB } from './database';
+import app from './app'; // Import the app instance
+
+dotenv.config();
+
+const port = process.env.PORT || 3000;
+
+// Connect to the database
+connectDB();
+
+// Start the server
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
+
+Write your first test. Create a new directory for your tests and add a file called user.routes.test.ts.src/routes/user.routes.test.ts
+
+import request from 'supertest';
+import app from '../app';
+import mongoose from 'mongoose';
+import { MongoMemoryServer } from 'mongodb-memory-server';
+
+let mongoServer: MongoMemoryServer;
+
+// Set up an in-memory MongoDB server for testing
+beforeAll(async () => {
+  mongoServer = await MongoMemoryServer.create();
+  const mongoUri = mongoServer.getUri();
+  await mongoose.connect(mongoUri);
+});
+
+// Clean up the database after each test
+afterEach(async () => {
+  await mongoose.connection.db.dropDatabase();
+});
+
+// Stop the in-memory MongoDB server after all tests
+afterAll(async () => {
+  await mongoose.disconnect();
+  await mongoServer.stop();
+});
+
+describe('User Routes', () => {
+  it('should create a new user', async () => {
+    const newUser = { name: 'Alice', email: 'alice@example.com' };
+    const response = await request(app)
+      .post('/users')
+      .send(newUser)
+      .expect(201);
+
+    expect(response.body.name).toBe(newUser.name);
+    expect(response.body.email).toBe(newUser.email);
+  });
+});
+
+This test uses supertest to simulate a POST request to your /users endpoint and mongodb-memory-server to run tests against an isolated, in-memory MongoDB instance. This keeps your tests fast and prevents data from leaking between tests

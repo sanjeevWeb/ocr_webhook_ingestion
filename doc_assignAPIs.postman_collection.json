@@ -1,0 +1,488 @@
+{
+	"info": {
+		"_postman_id": "1fc25d5e-d55d-4f17-805d-28bc86e74072",
+		"name": "doc_assignAPIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "29795181"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZXNzaW9uIjp7ImlkIjoiNmZlZTJjNGM3NzhmNWI1YWMxZTJjMzQzZTY1NjAzYmUzN2UyYzAxOWIxMmQyNTZiN2I4YTU1MGRhOTUxNjlmNyJ9LCJpYXQiOjE3NTU2NjgyMzIsImV4cCI6MTc1NTY3MTgzMn0.GLmWMJlOSV4qCMqtVFx3vpwQOaztYxqxzBleffyWFLI",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODgzMTRlNGY4NjUxYTFlYjhjZGM0YjgiLCJpYXQiOjE3NTU2NjQwNzQsImV4cCI6MTc1NTc1MDQ3NH0.CqJUVrljEpSVZ686LdIefeT0b8HxddRIKWYHPVqHCZI",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"admin@example.com\",\r\n    \"role\": \"admin\"\r\n    // \"token\": \"964309\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseUrl}}/login"
+			},
+			"response": [
+				{
+					"name": "response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZXNzaW9uIjp7ImlkIjoiNmZlZTJjNGM3NzhmNWI1YWMxZTJjMzQzZTY1NjAzYmUzN2UyYzAxOWIxMmQyNTZiN2I4YTU1MGRhOTUxNjlmNyJ9LCJpYXQiOjE3NTU2NjgyMzIsImV4cCI6MTc1NTY3MTgzMn0.GLmWMJlOSV4qCMqtVFx3vpwQOaztYxqxzBleffyWFLI",
+								"type": "text"
+							},
+							{
+								"key": "refreshToken",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODgzMTRlNGY4NjUxYTFlYjhjZGM0YjgiLCJpYXQiOjE3NTU2NjQwNzQsImV4cCI6MTc1NTc1MDQ3NH0.CqJUVrljEpSVZ686LdIefeT0b8HxddRIKWYHPVqHCZI",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"support1@example.com\",\r\n    \"role\": \"support\"\r\n    // \"token\": \"964309\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/login"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "389"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"185-21w26v0A2Yqj07HS3uq+0y1OAK0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 05 Oct 2025 13:41:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Login successful\",\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OGUyM2ZmNDgxZGEwNzQyODIyYTgyMDQiLCJlbWFpbCI6InN1cHBvcnQxQGV4YW1wbGUuY29tIiwicm9sZSI6InN1cHBvcnQiLCJpYXQiOjE3NTk2NzE2NjgsImV4cCI6MTc1OTY4MjQ2OH0.5kqracZ-aEf-DJgpJ7TKrUv4IUJBGwnG7QAXRwjpknM\",\n    \"user\": {\n        \"id\": \"68e23ff481da0742822a8204\",\n        \"email\": \"support1@example.com\",\n        \"role\": \"support\"\n    },\n    \"expiresIn\": \"3h\"\n}"
+				}
+			]
+		},
+		{
+			"name": "post doc",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OGUyM2ZmNDgxZGEwNzQyODIyYTgyMDMiLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU5ODMxOTY4LCJleHAiOjE3NTk4NDI3Njh9.kFtZVjFaoFPdO_1zjTAuPoiZoRQUQSJ6H30Cc5B8XZw",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODgzMTRlNGY4NjUxYTFlYjhjZGM0YjgiLCJpYXQiOjE3NTU2NjQwNzQsImV4cCI6MTc1NTc1MDQ3NH0.CqJUVrljEpSVZ686LdIefeT0b8HxddRIKWYHPVqHCZI",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/D:/PersonalProjects-Practice/webhook_ingestion_notes/note1.txt"
+						},
+						{
+							"key": "primaryTag",
+							"value": "68e28c84e7d29e71cd5003a2",
+							"type": "text"
+						},
+						{
+							"key": "textContent",
+							"value": "text file for file upload a new file",
+							"type": "text"
+						},
+						{
+							"key": "secondaryTag",
+							"value": "68e296f5a0f9cc9c36598830",
+							"type": "text"
+						}
+					]
+				},
+				"url": "{{baseUrl}}/v1/docs"
+			},
+			"response": []
+		},
+		{
+			"name": "create Tag",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OGUyM2ZmNDgxZGEwNzQyODIyYTgyMDMiLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU5NjczMjg2LCJleHAiOjE3NTk2ODQwODZ9.jxQjuZ0N4hoIhOfmrqOduV7mAbQDazYOcsLif94Zq4s",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODgzMTRlNGY4NjUxYTFlYjhjZGM0YjgiLCJpYXQiOjE3NTU2NjQwNzQsImV4cCI6MTc1NTc1MDQ3NH0.CqJUVrljEpSVZ686LdIefeT0b8HxddRIKWYHPVqHCZI",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"name\": \"adminTag 2\",\r\n   \"isPrimary\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseUrl}}/api/v1/tag"
+			},
+			"response": []
+		},
+		{
+			"name": "test",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZXNzaW9uIjp7ImlkIjoiNmZlZTJjNGM3NzhmNWI1YWMxZTJjMzQzZTY1NjAzYmUzN2UyYzAxOWIxMmQyNTZiN2I4YTU1MGRhOTUxNjlmNyJ9LCJpYXQiOjE3NTU2NjgyMzIsImV4cCI6MTc1NTY3MTgzMn0.GLmWMJlOSV4qCMqtVFx3vpwQOaztYxqxzBleffyWFLI",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODgzMTRlNGY4NjUxYTFlYjhjZGM0YjgiLCJpYXQiOjE3NTU2NjQwNzQsImV4cCI6MTc1NTc1MDQ3NH0.CqJUVrljEpSVZ686LdIefeT0b8HxddRIKWYHPVqHCZI",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"name\": \"tag1\"\r\n}"
+				},
+				"url": "{{baseUrl}}"
+			},
+			"response": []
+		},
+		{
+			"name": "get tags",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OGUyM2ZmNDgxZGEwNzQyODIyYTgyMDQiLCJlbWFpbCI6InN1cHBvcnQxQGV4YW1wbGUuY29tIiwicm9sZSI6InN1cHBvcnQiLCJpYXQiOjE3NTk2NzE2NjgsImV4cCI6MTc1OTY4MjQ2OH0.5kqracZ-aEf-DJgpJ7TKrUv4IUJBGwnG7QAXRwjpknM",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODgzMTRlNGY4NjUxYTFlYjhjZGM0YjgiLCJpYXQiOjE3NTU2NjQwNzQsImV4cCI6MTc1NTc1MDQ3NH0.CqJUVrljEpSVZ686LdIefeT0b8HxddRIKWYHPVqHCZI",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"name\": \"tag1\"\r\n}"
+				},
+				"url": "{{baseUrl}}/api/v1/tag"
+			},
+			"response": []
+		},
+		{
+			"name": "get docs",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OGUyM2ZmNDgxZGEwNzQyODIyYTgyMDMiLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU5ODIwODE0LCJleHAiOjE3NTk4MzE2MTR9.s1HDEepPLw2VJEaP-SRDa30sT0u2m41UR2KXyNUgf6g",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODgzMTRlNGY4NjUxYTFlYjhjZGM0YjgiLCJpYXQiOjE3NTU2NjQwNzQsImV4cCI6MTc1NTc1MDQ3NH0.CqJUVrljEpSVZ686LdIefeT0b8HxddRIKWYHPVqHCZI",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "testfile",
+							"type": "file",
+							"src": "/D:/PersonalProjects-Practice/webhook_ingestion_notes/testTocsv.txt"
+						}
+					]
+				},
+				"url": "{{baseUrl}}/v1/folders"
+			},
+			"response": []
+		},
+		{
+			"name": "get tag docs",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OGUyM2ZmNDgxZGEwNzQyODIyYTgyMDMiLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU5ODIwODE0LCJleHAiOjE3NTk4MzE2MTR9.s1HDEepPLw2VJEaP-SRDa30sT0u2m41UR2KXyNUgf6g",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODgzMTRlNGY4NjUxYTFlYjhjZGM0YjgiLCJpYXQiOjE3NTU2NjQwNzQsImV4cCI6MTc1NTc1MDQ3NH0.CqJUVrljEpSVZ686LdIefeT0b8HxddRIKWYHPVqHCZI",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "testfile",
+							"type": "file",
+							"src": "/D:/PersonalProjects-Practice/webhook_ingestion_notes/testTocsv.txt"
+						}
+					]
+				},
+				"url": "{{baseUrl}}/v1/folders/68e28c84e7d29e71cd5003a2/docs"
+			},
+			"response": []
+		},
+		{
+			"name": "search-doc",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OGUyM2ZmNDgxZGEwNzQyODIyYTgyMDMiLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU5ODIwODE0LCJleHAiOjE3NTk4MzE2MTR9.s1HDEepPLw2VJEaP-SRDa30sT0u2m41UR2KXyNUgf6g",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODgzMTRlNGY4NjUxYTFlYjhjZGM0YjgiLCJpYXQiOjE3NTU2NjQwNzQsImV4cCI6MTc1NTc1MDQ3NH0.CqJUVrljEpSVZ686LdIefeT0b8HxddRIKWYHPVqHCZI",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/D:/PersonalProjects-Practice/webhook_ingestion_notes/note2.txt"
+						},
+						{
+							"key": "primaryTag",
+							"value": "68e28c84e7d29e71cd5003a2",
+							"type": "text"
+						},
+						{
+							"key": "textContent",
+							"value": "uploading a new file to test.",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/v1/search?q=models&scope=files&ids=1759829669587-265026144",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"v1",
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "models"
+						},
+						{
+							"key": "scope",
+							"value": "files"
+						},
+						{
+							"key": "ids",
+							"value": "1759829669587-265026144"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create scoped action",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OGUyM2ZmNDgxZGEwNzQyODIyYTgyMDMiLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU5ODMxOTY4LCJleHAiOjE3NTk4NDI3Njh9.kFtZVjFaoFPdO_1zjTAuPoiZoRQUQSJ6H30Cc5B8XZw",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODgzMTRlNGY4NjUxYTFlYjhjZGM0YjgiLCJpYXQiOjE3NTU2NjQwNzQsImV4cCI6MTc1NTc1MDQ3NH0.CqJUVrljEpSVZ686LdIefeT0b8HxddRIKWYHPVqHCZI",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"scope\": {\"type\": \"folder\", \"name\": \"adminTag\"},\r\n  \"messages\": [{\"role\":\"user\",\"content\":\"make a csv of vendor totals\"}],\r\n  \"actions\": [\"make_csv\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseUrl}}/v1/actions/run"
+			},
+			"response": []
+		},
+		{
+			"name": "get scoped action",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OGUyM2ZmNDgxZGEwNzQyODIyYTgyMDMiLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU5ODIwODE0LCJleHAiOjE3NTk4MzE2MTR9.s1HDEepPLw2VJEaP-SRDa30sT0u2m41UR2KXyNUgf6g",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODgzMTRlNGY4NjUxYTFlYjhjZGM0YjgiLCJpYXQiOjE3NTU2NjQwNzQsImV4cCI6MTc1NTc1MDQ3NH0.CqJUVrljEpSVZ686LdIefeT0b8HxddRIKWYHPVqHCZI",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"scope\": {\"type\": \"folder\", \"name\": \"adminTag\"},\r\n  \"messages\": [{\"role\":\"user\",\"content\":\"make a document of vendor totals\"}],\r\n  \"actions\": [\"make_document\"]\r\n}"
+				},
+				"url": "{{baseUrl}}/v1/actions/usage/month"
+			},
+			"response": []
+		},
+		{
+			"name": "ocr wehook",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OGUyM2ZmNDgxZGEwNzQyODIyYTgyMDMiLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU5ODMxOTY4LCJleHAiOjE3NTk4NDI3Njh9.kFtZVjFaoFPdO_1zjTAuPoiZoRQUQSJ6H30Cc5B8XZw",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODgzMTRlNGY4NjUxYTFlYjhjZGM0YjgiLCJpYXQiOjE3NTU2NjQwNzQsImV4cCI6MTc1NTc1MDQ3NH0.CqJUVrljEpSVZ686LdIefeT0b8HxddRIKWYHPVqHCZI",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"source\":\"scanner-01\",\r\n  \"imageId\":\"img_123\",\r\n  \"text\":\"LIMITED TIME SALE… unsubscribe: mailto:stop@brand.com\",\r\n  \"meta\":{\"address\":\"123 Main St\", \"userId\": \"68e23ff481da0742822a8204\"}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseUrl}}/v1/webhooks/ocr"
+			},
+			"response": []
+		},
+		{
+			"name": "get-audit",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2OGUyM2ZmNDgxZGEwNzQyODIyYTgyMDMiLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU5ODMxOTY4LCJleHAiOjE3NTk4NDI3Njh9.kFtZVjFaoFPdO_1zjTAuPoiZoRQUQSJ6H30Cc5B8XZw",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODgzMTRlNGY4NjUxYTFlYjhjZGM0YjgiLCJpYXQiOjE3NTU2NjQwNzQsImV4cCI6MTc1NTc1MDQ3NH0.CqJUVrljEpSVZ686LdIefeT0b8HxddRIKWYHPVqHCZI",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"source\":\"scanner-01\",\r\n  \"imageId\":\"img_123\",\r\n  \"text\":\"LIMITED TIME SALE… unsubscribe: mailto:stop@brand.com\",\r\n  \"meta\":{\"address\":\"123 Main St\", \"userId\": \"68e23ff481da0742822a8205\"}\r\n}"
+				},
+				"url": "{{baseUrl}}/v1/metrics"
+			},
+			"response": []
+		}
+	]
+}
